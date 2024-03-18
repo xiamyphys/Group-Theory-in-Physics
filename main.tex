@@ -1,0 +1,25 @@
+% !TEX program = pdflatex
+\documentclass[mtpro2,amsthm]{litebook}
+% \usepackage[backend=bibtex]{biblatex}
+% \bibliography{references.bib}
+
+\cover{\UPLOWFadingImage[trim={0 {.9\paperheight} 0 0},clip]{Beautiful-realities}
+                        [trim={0 {.5\paperheight} 0 0},clip]{Beautiful-realities}}
+\title{\scshape Group Theory in Physics}
+\subtitle{\scshape A \emph{not so} Short Introduction}
+\author{Hsia Mingyu}
+\bioinfo{Hangzhou Dianzi University}
+\press{\scshape\textcolor{teal}{\faIcon{telegram-plane}}Hangzhou in Late Spring 2024}
+
+\begin{document}
+\maketitle
+\frontmatter\tableofcontents\mainmatter
+
+\input{cha/cha1.tex}
+% \input{cha/problems.tex}
+
+
+\nocite{*}
+% \printbibliography
+
+\end{document}

@@ -1,0 +1,254 @@
+\chapter{The Basis Concepts of Group}
+
+\section{The Introduction to group}
+
+\begin{definition}
+    Group is a mathematical structure, it's a combine of set and binary operation.
+\end{definition}
+
+For example, we define the \emph{Multiplication Group} $(G,*)$, and $G$ is commonly expressed as \eqref{1.1.1}
+\begin{equation}
+    G=\{e,a_1,a_2,\ldots,a_n\}
+    \label{1.1.1}
+\end{equation}
+
+A group should meet 4 requirements.
+\begin{proposition}[4 - requirements for a group]\leavevmode
+\begin{enumerate}
+    \item A group should have the unit element $e$. For the \emph{Multiplication Group}, we have $e*a=a*e=a$.
+    \item A group should satisfy that all the elements in it have the corresponding inverse elements, that is $a^{-1}a=aa^{-1}=e$, while the order of the multiplication of an element and its inverse is exchangeable (we call this commutative). However, most of the time elements are not commutable.
+    \item Associative law: for three or more elements, we have $abc=(ab)c=a(bc)$.
+    \item Closure. If $a,b\in G$, we have $ab\in G$.
+\end{enumerate}
+\end{proposition}
+
+Following are some examples of group.
+
+\begin{example}
+    The addition integer group $(\mathbb Z,+)$.
+    \begin{itemize}
+        \item Unit element: $e=0$, $e+a=a+e=a$.
+        \item Inverse element: $a^{-1}=-a$, $a^{-1}+a=a+a^{-1}=e=0$.
+        \item Combine law: $a+b+c=(a+b)+c=a+(b+c)$.
+        \item Closure: If $a\in\mathbb Z$, $b\in\mathbb Z$, the group satisfies $a+b\in\mathbb Z$.
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    The multiplication integer group $(\mathbb Z,*)$.
+    \begin{itemize}
+        \item For any element $a\in\mathbb Z$, its inverse $a^{-1}=1/a\notin\mathbb Z$. So this is not a group.
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    The multiplication real number group $(\mathbb R,*)$.
+    \begin{itemize}
+        \item Unit element: $e=1$. Inverse element: $a^{-1}=1/a$, however $0$ has not inverse element.
+        \item So this is not a group. Certainly, $(\mathbb R/\{0\},*)$ is a group.
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    The Hilbert space addition group $(\mathcal H,+)$.
+
+    For the Hilbert space, there are a set of basis in it. For finite dimension H-space
+    \[\mathcal H=\{\ket{\psi_1},\ket{\psi_2},\ldots,\ket{\psi_n}\}\]
+
+    Any element in it is a linear combination
+    \[\ket{\psi_i}=\sum_ic_i\ket{\phi_i}\]
+
+    So all the elements in $\mathcal H$ form a group under addition.
+\end{example}
+
+\begin{example}
+    Consider a 2nd order ordinary group $G=\{e,a\}$. We use the multiplication \tabref{1.1} to acknowledge its structure.
+    \begin{table}[!ht]
+        \begin{minipage}{.32\linewidth}
+            \centering
+            \caption{The multiplication table.}
+            \begin{tabular}{ c | c c }
+                \toprule
+                    & $e$ & $a$\\
+                \midrule
+                $e$ & $e$ & $a$\\
+                $a$ & $a$ & $a$ or $e$?\\
+                \bottomrule
+            \end{tabular}
+            \label{1.1}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{.64\linewidth}
+            \begin{itemize}
+                \item $a*a$ has 2 possibilities: $a*a=a$ or $a*a=e$.
+                \item If $a*a=a$, then we have $a^{-1}a*a=a^{-1}a$, $a=e$.
+                \item So $a*a=e$, means the 2nd order ordinary group has only one structure, it corresponds to the group $G=\{1,-1\}$.
+            \end{itemize}
+        \end{minipage}
+    \end{table}
+
+    Now we discuss the relation between the 2nd order group and the geometry.
+    \begin{enumerate}
+        \item The symmetry of line segments.
+        \begin{figure}[!ht]
+            \begin{minipage}{.32\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \draw [thick] (-1.5,0) -- (1.5,0) node [at start,above] {$A$} node [above] {$B$};
+                    \draw [dashed] (0,1) -- (0,-1);
+                    \draw [->] ({-.5/sqrt(2)},{-.5/sqrt(2)}) arc (225:-45:.5);
+                \end{tikzpicture}
+            \end{minipage}
+            \hfill
+            \begin{minipage}{.64\linewidth}
+                \begin{itemize}
+                    \item Identity operation: do nothing to the line segment $(e)$.
+                    \item Flip operation: rotate the line segment $180^\circ$ around the center, or mirror the line segment with the central mirror $(a)$.
+                \end{itemize}
+            \end{minipage}
+        \end{figure}
+        
+        After we label the line segment, we can write $e$ and $a$ into matrices
+        \[e=\begin{bmatrix}A&B\\A&B\end{bmatrix},\ a=\begin{bmatrix}A&B\\B&A\end{bmatrix}\]
+
+        While $a*a=e$ means that flip twice is equivalent to do nothing.
+        \item For the $\unit{CO_2}$ molecule, its Hamiltonian has the symmetry of flip, which stands for some degeneracy.
+        
+        We consider the parity. A $1$-dimension Hamiltonian is
+        \[\mathcal H=-\frac{\hbar^2}{2m}\frac{\d^2}{\d x^2}+V(x)\]
+
+        If $V(x)=V(-x)$, then we can define the parity operator $P$, exists that
+        \[Pf(x)=f(-x)\]
+
+        And we have $P\mathcal H=\mathcal HP$.
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Consider a 3rd order group $G=\{e,a,b\}$. We also use the multiplication \tabref{1.2} to acknowledge its structure.
+
+    \begin{table}[!ht]
+        \begin{minipage}{.32\linewidth}
+            \centering
+            \caption{The multiplication table.}
+            \begin{tabular}{ c | c c c }
+                \toprule
+                    & $e$ & $a$ & $b$\\
+                \midrule
+                $e$ & $e$ & $a$ & $b$\\
+                $a$ & $a$ & $b$ & $e$\\
+                $b$ & $b$ & $e$ & $a$ \\
+                \bottomrule
+            \end{tabular}
+            \label{1.2}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{.64\linewidth}
+            \begin{itemize}
+                \item We know $a*a$ cannot equal to $a$. If $a*a=e$, the following two situations are rejected
+                \begin{itemize}
+                    \item If $a*b=b$, then $b=e$.
+                    \item If $a*b=e=a*a$, then $a=b$
+                \end{itemize}
+                \item So we choose $a*a=b$. Symmetrically, $b*b=a$.
+                \item We know $ab$ cannot equal to $a$ or $b$, so $a*b=b*a=e$.
+            \end{itemize}
+        \end{minipage}
+    \end{table}
+
+    Due to the relation in the 3rd order group $b=a*a$, we can form the 3rd order group by complex numbers, $G=\{1,\omega,\omega^2\}$ while $\omega=\e^{\i\frac{2\pi}{3}}$.
+
+    Now, we act the elements of the 3rd order group to a complex number $z=r\e^{\i\theta}$, then we have
+    \[ez=z=r\e^{\i\theta},\ \omega z=\omega r\e^{\i\theta}=r\e^{\i\ab(\theta+\frac{2\pi}{3})},\ \omega^2z=\omega^2r\e^{\i\theta}=r\e^{\i\ab(\theta+\frac{4\pi}{3})}\]
+
+    In geometry, the \emph{Graphene's Hexagonal Lattice} has $2\pi/3$ rotational symmetry around its center and the 3rd order group can be expressed as $G=\{1,C_3^1,C_3^2\}$. Here, the point group notation $C_n^i$ means rotate $2\pi\i/n$.
+\end{example}
+
+\begin{definition}[The Isomorphism groups]
+    If elements in two groups are one to one corresponded, then we call the two groups are the Isomorphism groups.
+\end{definition}
+
+\begin{table}[!ht]
+    \centering
+    \caption{$G_1$ and $G_2$ are isomorphism groups can be considered the same.}
+    \begin{tabular}{ l | l }
+        \toprule
+        $G_1=\{1,-1\}\backsimeq G_2=\{e,P\}$ & $1\to e$, $-1\to P$\\
+        \midrule
+        $G_1=\{1,\omega,\omega^2\}\backsimeq G_2=\{e,C_3^1,C_3^2\}$ & $1\to e$, $\omega\to C_3^1$, $\omega^2\to C_3^2$\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{definition}[The homomorphism groups]
+    Different from the Isomorphism groups, the homomorphism groups allow `$n$ to $1$', that is several elements in a group can correspond to the same element in another group.
+\end{definition}
+
+The homomorphism groups also satisfy the closure. Such as if $G\xlongrightarrow{\varphi}H$ and $\varphi(g_1)=h_1$, $\varphi(g_2)=h_2$, then there should be $\varphi(g_1g_2)=h_1h_2$. The simplest homomorphism group for any group $G$ is $\{e\}$.
+
+\begin{theorem}[The rearrange theorem]
+    If $T$ is any element from the group $G=\{E,R,S,\ldots\}$, then we can use the closure
+    \[TG=\{T,TR,TS,\ldots\}=G,\ GT=\{T,RT,ST,\ldots\}=G,\ G^{-1}=\{E,R^{-1},S^{-1},\ldots\}=G\]
+
+    That is $TG=GT=G^{-1}=G$, which is equivalent to disrupt the elements in the group ant then rearrange them in another order.
+\end{theorem}
+
+\begin{definition}[The cyclic group]
+    All the elements in the group satisfy
+    \[G_n=\{e,R,R^2,\ldots,R^{n-1}\}\]
+
+    We call $R$ the 2nd generator and $R^n=e$, elements in the cyclic group are commutative.
+\end{definition}
+
+The 4th group has 2 structures, one is the cyclic group while the other is not. The cyclic 4th group is $G=\{1,\omega,\omega^2,\omega^3\}$ while $\omega=\sqrt[4]1=\e^{\i\frac\pi2}$.
+
+\section{The subsets of group}
+
+\begin{definition}[The subgroup]
+    If $H\subset G$, and $(H,*)$ is also a group, then we call $H$ the subgroup of $G$. Also, the elements in $H$ satisfy
+    \begin{itemize}
+        \item If $a\in$ H, then $a^{-1}\in H$.
+        \item If $a,b\in H$, then $ab\in H$.
+    \end{itemize}
+\end{definition}
+
+For example, the 4th cyclic group $G=\{1,\omega,\omega^2,\omega^3\}$, its subgroup $H$ can be $\{1,\omega^2\}=\{1,-1\}$. Here, we express the order number of $G$ as $\abs{G}$. Then $\abs{G}=4$, $\abs{H}=2$. We can have the following theorem.
+
+\begin{theorem}
+    The order of the subgroup must be the factor of the order of the original group.
+\end{theorem}
+
+Certainly, for the 3rd order group $G=\{1,\omega,\omega^2\}$, its subgroup can be $\{e\}$ and $G$. For $H=\{1,\omega\}$, $H=\{1,\omega^2\}$ or $H=\{\omega,\omega^2\}$ are not its subgroup.
+
+Before we proof this theorem, we define the coset first.
+
+\begin{definition}[The coset]
+    For the group $G$ and its subgroup $H$, we define any element $g$ from $G$ left multiples $H$, that is $gH$, is the left coset of the group $H$.
+    \[gH=\{gh_1,gh_2,\ldots,gh_n\}\]
+\end{definition}
+
+Due to the rearrange theorem, if $h_i\in H$, then $h_iH=H$ and $HH=H$.
+
+For the two elements $g_i$, $g_j$, which are from $G$, if $g_iH=g_jH$, then $g_j^{-1}g_iH=H$ and $g_j^{-1}g_ih_i=h_i'$.
+
+Due to $h_i$, $h_i'\in H$, using the closure we have $g_j^{-1}g_i\in H$, $g_i\in g_jH$. By exchanging the label $i$ and $j$, we can also obtain that if $g_iH=g_jH$, then $g_j\in g_iH$.
+
+\section{The homomorphic relationship of group}
+
+\section*{Problems - 12/03/2024}
+
+\begin{problem}
+    The group of all symmetry operations on a square is called the $D_4$ group, write down the multiplication table of the $D_4$ group.
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    Prove that all the non-zero integers form a group under the multiplication.
+\end{problem}
+\begin{solution}
+\begin{proof}
+    
+\end{proof}
+\end{solution}
